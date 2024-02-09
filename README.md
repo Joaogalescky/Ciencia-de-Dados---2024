@@ -1,4 +1,4 @@
-# Ciência de Dados II - 2°TADS | 2024
+# Ciência de Dados  - 2°TADS | 2024
 
 Repositório para a matéria de Ciência de Dados II - 2° TADS - Tecnólogo em Análise e Desenvolvimento de Sistemas | 2024.
 
