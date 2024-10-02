@@ -19,15 +19,24 @@ dfFilter = df[["sigla_uf", "id_municipio", "rede", "id_escola", "empresa", "tecn
 
 # Filtros
 estado = st.multiselect("Escolha um estado:", dfFilter["sigla_uf"].unique())
-dfUF = dfFilter[dfFilter['sigla_uf'].isin(estado)]
+if estado: 
+    dfUF = dfFilter[dfFilter['sigla_uf'].isin(estado)]
+else: 
+    dfUF = dfFilter # caso não selecionado, não aplicar o filtro
 st.dataframe(dfUF)
 
 empresa = st.multiselect("Escolha uma empresa:", dfFilter["empresa"].unique())
-dfEmpresa = dfFilter[dfFilter['empresa'].isin(empresa)]
+if empresa:
+    dfEmpresa = dfUF[dfUF['empresa'].isin(empresa)]
+else:
+    dfEmpresa = dfUF
 st.dataframe(dfEmpresa)
 
 tecnologia = st.multiselect("Escolha uma tecnologia:", dfFilter["tecnologia"].unique())
-dfTecnologia = dfFilter[dfFilter['tecnologia'].isin(tecnologia)]
+if tecnologia:
+    dfTecnologia = dfEmpresa[dfEmpresa['tecnologia'].isin(tecnologia)]
+else:
+    dfTecnologia = dfEmpresa
 st.dataframe(dfTecnologia)
 
 # menor_conexao = df['conexao'].min()
